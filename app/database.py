@@ -1,9 +1,10 @@
+from decouple import config
 from sqlalchemy import create_engine, MetaData, Table
 from sqlalchemy.orm import sessionmaker, mapper
 from .models import Orders
 
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@0.0.0.0/postgres_docker"
+SQLALCHEMY_DATABASE_URL = config("SQLALCHEMY_DATABASE_URL")
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
